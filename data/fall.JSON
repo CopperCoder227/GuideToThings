@@ -1,27 +1,25 @@
 [
-    {
-        "name": "Girls Cross Country",
-        "teacher": "Ms. Hazel",
-        "description": "words of description",
-        "contact": "mhazel@frhsd.com",
-	    "location": "Big Brook Park"
-    },
-    {
-        "name": "Boys Cross Country",
-        "coach": "Mr. Iliff",
-        "description": "words of description",
-        "contact": "riliff@frhsd.com",
-	    "location": "Big Brook Park"
-
-
-    },
-    {
-        "name": "Girls Volleyball",
-        "coach": "Mr. Walsh",
-        "description": "words of description",
-        "contact": "mwalsh@frhsd.com x6218",
-	    "location": "MRHS"
-    },
+  {
+    "name": "Girls Cross Country",
+    "teacher": "Ms. Hazel",
+    "description": "words of description",
+    "contact": "mhazel@frhsd.com",
+    "location": "Big Brook Park"
+  },
+  {
+    "name": "Boys Cross Country",
+    "coach": "Mr. Iliff",
+    "description": "words of description",
+    "contact": "riliff@frhsd.com",
+    "location": "Big Brook Park"
+  },
+  {
+    "name": "Girls Volleyball",
+    "coach": "Mr. Walsh",
+    "description": "words of description",
+    "contact": "mwalsh@frhsd.com x6218",
+    "location": "MRHS"
+  },
     {
         "name": "Football",
         "coach": "Mr. Dagato",

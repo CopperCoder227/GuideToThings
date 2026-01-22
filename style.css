@@ -1,118 +1,131 @@
-/* Menu icon */
+/* Reset basics + body */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu icon - make sure it's visible and clickable */
 .menu-icon {
+  position: fixed;
+  top: 15px;
+  left: 15px;
   width: 50px;
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 30px;
-  cursor: pointer;
-  background-color: #333;
+  background: #333;
   color: white;
-  border-radius: 5px;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1001;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Sidebar base (desktop by default) */
+.menu-icon:hover,
+.menu-icon.active {
+  background: #555;
+}
+
+/* Sidebar - slide-in from left (reliable mobile/desktop) */
 .sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 70px;
-  overflow: hidden;
-  background-color: transparent;
-  transition: all 0.5s ease-in-out;
+  inset: 0 auto 0 -280px; /* top right bottom left */
+  width: 280px;
+  height: 100vh;
+  background: #2c2c2c;
+  color: white;
+  transition: transform 0.35s ease;
+  transform: translateX(0);
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  padding-left: 0;
-  box-sizing: border-box;
+  padding-top: 80px;
+  overflow-y: auto;
 }
 
-.sidebar.open {
-  width: 100vw;
-  background-color: #333;
-  padding-left: 60px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
+.sidebar.active {
+  transform: translateX(280px);
 }
 
+/* Links in sidebar */
 .sidebar ul {
   list-style: none;
   margin: 0;
-  padding: 0 10px;
-  display: flex;
-  gap: 50px;
-  width: 100%;
-  justify-content: flex-start;
+  padding: 0;
 }
 
-.sidebar ul li {
-  text-align: center;
-}
-
-.sidebar ul li a {
+.sidebar a {
+  display: block;
   color: white;
   text-decoration: none;
-  display: inline-block;
-  padding: 10px 15px;
+  padding: 14px 24px;
+  font-size: 1.05rem;
 }
 
-.sidebar ul li a:hover {
-  background-color: #444;
-  border-radius: 3px;
+.sidebar a:hover {
+  background: #444;
 }
 
-/* ---------- MOBILE DROPDOWN STYLES ---------- */
+/* Main content spacing (so sidebar doesn't overlap text when open) */
+main {
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: padding-left 0.35s ease;
+}
+
+.sidebar.active ~ main {
+  padding-left: 300px; /* push content right when sidebar open */
+}
+
+/* ── Club Cards ──────────────────────────────────────── */
+.club-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.18s ease;
+  height: 100%; /* makes cards same height in row */
+}
+
+.club-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.club-card h3 {
+  margin: 0 0 0.9rem 0;
+  font-size: 1.45rem;
+  color: #1a3c5e;
+}
+
+.club-card p {
+  margin: 0.5rem 0;
+  line-height: 1.45;
+}
+
+.club-card strong {
+  color: #333;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .col-12 {
-    width: 90%;
-    max-width: 100%;
-    padding-top: 10px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    transform: translateX(-30px);
-  }
   .sidebar {
-    flex-direction: column;
-    width: 100vw;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out;
-    padding: 0;
-    align-items: flex-start;
-    border-radius: 0;
-    background-color: #333;
+    width: 85vw;
+    max-width: 320px;
   }
-
-  .sidebar.open {
-    height: 100vh;
-    padding-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+  .sidebar.active {
+    transform: translateX(85vw);
   }
-
-  .sidebar ul {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .sidebar ul li {
-    width: 100%;
-  }
-
-  .sidebar ul li a {
-    display: block;
-    width: 100%;
-    font-size: 18px;
-    padding: 12px 0;
+  .sidebar.active ~ main {
+    padding-left: 20px; /* less push on small screens */
   }
 }

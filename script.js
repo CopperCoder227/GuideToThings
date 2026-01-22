@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sidebar / menu toggle
+    // ── Sidebar toggle ────────────────────────────────────────
     const menuIcon = document.getElementById('menuIcon');
     const sidebar = document.getElementById('sidebar');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.textContent = sidebar.classList.contains('open') ? '✕' : '☰';
         });
 
-        // Close sidebar on link click
+        // Close sidebar when clicking links
         document.querySelectorAll('.sidebar a').forEach(link => {
             link.addEventListener('click', () => {
                 sidebar.classList.remove('open');
@@ -18,63 +18,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Card rendering – only if this page has the container
+    // ── Card loading only if container exists ─────────────────
     const container = document.getElementById('clubs-container');
     if (!container) return;
 
     const loading = document.getElementById('loading');
     const errorEl = document.getElementById('error-message');
 
-    // Select correct data file
-    let jsonFile = 'clubs.json'; // fallback
-    const path = window.location.pathname.toLowerCase();
+    // Decide which JSON file to load
+    let jsonPath = './data/clubs.json'; // fallback
 
-    if (path.includes('pre-clubs') || path.includes('morning')) {
-        jsonFile = 'before-clubs.json';
-    } else if (path.includes('lunch-clubs')) {
-        jsonFile = 'lunch-clubs.json';
-    } else if (path.includes('after-clubs')) {
-        jsonFile = 'after-clubs.json';
-    } else if (path.includes('fsport') || path.includes('fall')) {
-        jsonFile = 'fall-sports.json';
-    } else if (path.includes('wsport') || path.includes('winter')) {
-        jsonFile = 'winter-sports.json';
-    } else if (path.includes('ssport') || path.includes('spring')) {
-        jsonFile = 'spring-sports.json';
+    const pathname = window.location.pathname.toLowerCase();
+
+    if (pathname.includes('hayley-fsport.html') || pathname.includes('fall')) {
+        jsonPath = './data/fall.json';
+    } else if (pathname.includes('hayley-wsport.html') || pathname.includes('winter')) {
+        jsonPath = './data/winter.json';
+    } else if (pathname.includes('hayley-ssport.html') || pathname.includes('spring')) {
+        jsonPath = './data/spring.json';
     }
 
-    fetch(`./data/${jsonFile}`)
-        .then(res => {
-            if (!res.ok) throw new Error(`Cannot load ${jsonFile} – status ${res.status}`);
-            return res.json();
+    fetch(jsonPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load ${jsonPath} – status ${response.status}`);
+            }
+            return response.json();
         })
         .then(data => {
             if (loading) loading.style.display = 'none';
 
             container.innerHTML = '';
 
-            if (!data || data.length === 0) {
-                container.innerHTML = '<p class="text-center lead">No activities currently listed.</p>';
+            if (!Array.isArray(data) || data.length === 0) {
+                container.innerHTML = '<p class="text-center lead">No fall sports listed yet.</p>';
                 return;
             }
 
             data.forEach(item => {
                 const col = document.createElement('div');
                 col.className = 'col';
+
                 col.innerHTML = `
-          <div class="club-card">
-            <h3>${item.name || 'Unnamed Activity'}</h3>
-            <p><strong>Coach/Teacher:</strong> ${item.coach || item.teacher || 'TBD'}</p>
-            <p>${item.description || 'No description available.'}</p>
-            <p><strong>Contact:</strong> ${item.contact || 'N/A'}</p>
-            <p><strong>Location:</strong> ${item.location || 'TBD'}</p>
-          </div>
-        `;
+                    <div class="club-card">
+                        <h3>${item.name || 'Unnamed'}</h3>
+                        <p><strong>Coach/Teacher:</strong> ${item.coach || item.teacher || 'TBD'}</p>
+                        <p>${item.description || 'No description available.'}</p>
+                        <p><strong>Contact:</strong> ${item.contact || 'N/A'}</p>
+                        <p><strong>Location:</strong> ${item.location || 'TBD'}</p>
+                    </div>
+                `;
+
                 container.appendChild(col);
             });
         })
         .catch(err => {
-            console.error(err);
+            console.error('Error loading fall sports:', err);
             if (loading) loading.style.display = 'none';
             if (errorEl) errorEl.style.display = 'block';
         });
