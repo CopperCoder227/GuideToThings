@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.textContent = sidebar.classList.contains('open') ? '✕' : '☰';
         });
 
-        // Close sidebar when clicking links
         document.querySelectorAll('.sidebar a').forEach(link => {
             link.addEventListener('click', () => {
                 sidebar.classList.remove('open');
@@ -25,19 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const errorEl = document.getElementById('error-message');
 
-    // Decide which JSON file to load
-    let jsonPath = './data/clubs.json'; // fallback
+    // ── Decide which JSON file to load ────────────────────────
+    let jsonPath = './data/clubs.json';
+    let isClubbing = false;
 
     const pathname = window.location.pathname.toLowerCase();
 
-    if (pathname.includes('hayley-fsport.html') || pathname.includes('fall')) {
+    if (pathname.includes('hayley-fsport') || pathname.includes('fall')) {
         jsonPath = './data/fall.json';
-    } else if (pathname.includes('hayley-wsport.html') || pathname.includes('winter')) {
+    } else if (pathname.includes('hayley-wsport') || pathname.includes('winter')) {
         jsonPath = './data/winter.json';
-    } else if (pathname.includes('hayley-ssport.html') || pathname.includes('spring')) {
+    } else if (pathname.includes('hayley-ssport') || pathname.includes('spring')) {
         jsonPath = './data/spring.json';
+    } else if (pathname.includes('clubs') || pathname.includes('clubbing')) {
+        jsonPath = './data/clubbing.json';
+        isClubbing = true;
     }
 
+    // ── Fetch and render cards ───────────────────────────────
     fetch(jsonPath)
         .then(response => {
             if (!response.ok) {
@@ -47,13 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             if (loading) loading.style.display = 'none';
-
             container.innerHTML = '';
 
             if (!Array.isArray(data) || data.length === 0) {
-                container.innerHTML = '<p class="text-center lead">No fall sports listed yet.</p>';
+                container.innerHTML = '<p class="text-center lead">No items listed yet.</p>';
                 return;
             }
+
+            const roleLabel = isClubbing ? 'Teacher' : 'Coach';
 
             data.forEach(item => {
                 const col = document.createElement('div');
@@ -62,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 col.innerHTML = `
                     <div class="club-card">
                         <h3>${item.name || 'Unnamed'}</h3>
-                        <p><strong>Coach/Teacher:</strong> ${item.coach || item.teacher || 'TBD'}</p>
-                        <p>${item.description || 'No description available.'}</p>
+                        <p><strong>${roleLabel}:</strong> ${item.teacher || item.coach || 'TBD'}</p>
+                        <p><strong>Description:</strong> ${item.description || 'No description available.'}</p>
                         <p><strong>Contact:</strong> ${item.contact || 'N/A'}</p>
                         <p><strong>Location:</strong> ${item.location || 'TBD'}</p>
                     </div>
@@ -73,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(err => {
-            console.error('Error loading fall sports:', err);
+            console.error('Error loading information:', err);
             if (loading) loading.style.display = 'none';
             if (errorEl) errorEl.style.display = 'block';
         });
