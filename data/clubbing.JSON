@@ -1,38 +1,116 @@
 [
     {
-        "name": "Girls Cross Country",
-        "teacher": "Ms. Hazel",
-        "description": "words of description",
-        "contact": "mhazel@frhsd.com",
+        "name": "ALSO (African American Latino Student Organization)",
+        "teacher": "Ms. Cooke",
+        "description": "Celebrates and expands knowledge of African-American and Latin-American culture while promoting diversity and cultural appreciation.",
+        "contact": "ecooke@frhsd.com"
     },
     {
-        "name": "Boys Cross Country",
-        "teacher": "Mr. Ipplito",
-        "description": "words of description",
-        "contact": "riliff@frhsd.com"
+        "name": "Asian Club",
+        "teacher": "Ms. Patel",
+        "description": "Explores Asian culture through things such as cultural events. Open to all students and welcoming to everyone.",
+        "contact": "spatel@frhsd.com"
     },
     {
+        "name": "Chess Club",
+        "teacher": "Mr. Carlo",
+        "description": "Play chess and improve your skills with other students. Meets every Wednesday 3-4pm in A229. All chess boards provided.",
+        "contact": "jcarlo@frhsd.com"
+    },
+    {
+        "name": "Concert Band",
+        "teacher": "Mr. Ippolito",
+        "description": "Open to all musicians from beginner to advanced. Performs in school and community concerts. Rehearsals are after school about once a week.",
+        "contact": "mippolito@frhsd.com"
+    },
+    {
+        "name": "Concert Choir",
+        "teacher": "Mr. Ippolito",
+        "description": "Open to all singers from beginner to advanced. Performs in school and community concerts. Rehearsals once a week before or after school.",
+        "contact": "mippolito@frhsd.com"
+    },
+    {
+        "name": "Connect4Cancer",
+        "teacher": "Ms. Fontanilla",
+        "description": "Raises awareness for various types of cancer through fundraisers, events, and activities.",
+        "contact": "mfontanilla@frhsd.com"
+    },
+       {
+        "name": "DECA",
+        "teacher": "Mr. Varrial and Ms.Bendik",
+        "description": "National organization for marketing students. Promotes marketing through leadership training, community service, and competitions at regional, state, and national levels.",
+        "contact": "cvarrial@frhsd.com and nbendik@frhsd.com"
+    },
+       {
+        "name": "Hitching Post",
+        "teacher": "Dr. Patel",
+        "description": "School newspaper providing opportunities to write, edit, and publish articles on topics important to MHS and the community. Develop communication and journalism skills.",
+        "contact": "spatel@frhsd.com"
+    },
+       {
         "name": "",
         "teacher": "",
-        "description": "words of description",
+        "description": "",
         "contact": ""
     },
-    {
+       {
         "name": "",
         "teacher": "",
-        "description": "words of description",
+        "description": "",
         "contact": ""
     },
-    {
+       {
         "name": "",
         "teacher": "",
-        "description": "words of description",
+        "description": "",
         "contact": ""
     },
-    {
+       {
         "name": "",
         "teacher": "",
-        "description": "words of description",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
+        "contact": ""
+    },
+       {
+        "name": "",
+        "teacher": "",
+        "description": "",
         "contact": ""
     }
 ]
