@@ -2,35 +2,31 @@
   {
     "name": "Girls Cross Country",
     "teacher": "Ms. Hazel",
-    "description": "words of description",
+
     "contact": "mhazel@frhsd.com",
     "location": "Big Brook Park"
   },
   {
     "name": "Boys Cross Country",
     "coach": "Mr. Iliff",
-    "description": "words of description",
     "contact": "riliff@frhsd.com",
     "location": "Big Brook Park"
   },
   {
     "name": "Girls Volleyball",
     "coach": "Mr. Walsh",
-    "description": "words of description",
     "contact": "mwalsh@frhsd.com x6218",
     "location": "MRHS"
   },
     {
         "name": "Football",
         "coach": "Mr. Dagato",
-        "description": "words of description",
         "contact": "jdagato@frhsd.com x6156",
 	    "location": "MRHS"
     },
     {
         "name": "Girls Tennis",
         "coach": "coach",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "Marlboro Swim Club"
     },
@@ -39,7 +35,6 @@
  {
         "name": "Girls Soccer",
         "coach": "Mr. Levi",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -48,7 +43,6 @@
  {
         "name": "Boys Soccer",
         "coach": "Mr. Morris",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -57,7 +51,6 @@
  {
         "name": "Gymnastics",
         "coach": "Ms. Fontanilla",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     }

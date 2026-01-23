@@ -2,7 +2,6 @@
  {
         "name": "Baseball",
         "coach": "Mr. Navarette",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "MRHS"
     },
@@ -11,7 +10,6 @@
  {
         "name": "Golf - Boys",
         "coach": "Mr. Anderson",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "Bella Vista Country Club"
     },
@@ -20,7 +18,6 @@
  {
         "name": "Golf - Girls",
         "coach": "Mr. McGeough",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "Bella Vista Country Club"
     },
@@ -29,7 +26,6 @@
  {
         "name": "Lacrosse - Boys",
         "coach": "Mr. Oplinger",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -38,14 +34,12 @@
  {
         "name": "Lacrosse - Girls",
         "coach": "Ms. DiMaulo",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Softball",
         "coach": "Mr. Scalzo",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -54,7 +48,6 @@
  {
         "name": "Tennis - Boys",
         "coach": "Mr. Levi",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -63,7 +56,6 @@
  {
         "name": "Track & Field - Boys",
         "coach": "Mr. Sessa",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -72,7 +64,6 @@
  {
         "name": "Track & Field - Girls",
         "coach": "Mr. Iliff",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -81,7 +72,6 @@
  {
         "name": "Volleyball - Boys",
         "coach": "Mr. Masi",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     }
