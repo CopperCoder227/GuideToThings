@@ -55,15 +55,6 @@
 
 
  {
-        "name": "Boys Soccer",
-        "coach": "Mr. Morris",
-        "description": "words of description",
-        "contact": "contact",
-	    "location": "spot"
-    },
-
-
- {
         "name": "Gymnastics",
         "coach": "Ms. Fontanilla",
         "description": "words of description",

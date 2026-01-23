@@ -89,7 +89,7 @@ const carouselImages = [
     'imgs/sport.webp',
     'imgs/frontsoot.webp',
     'imgs/football.webp',
-    'imgs/botc.jpg'
+    'imgs/botc.jpg',
 ];
 
 const CAROUSEL_WIDTH = 600;
@@ -99,10 +99,10 @@ const CAROUSEL_HEIGHT = 400;
 function initCarousel() {
     const carouselInner = document.querySelector('.carousel-inner');
 
-    // Clear existing items except the first one
+    // Clear all existing carousel items
     const items = carouselInner.querySelectorAll('.carousel-item');
-    items.forEach((item, index) => {
-        if (index > 0) item.remove();
+    items.forEach((item) => {
+        item.remove();
     });
 
     // Add all images from the array
