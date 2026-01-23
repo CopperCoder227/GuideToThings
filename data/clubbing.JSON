@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Girls Cross Country",
+        "teacher": "Ms. Hazel",
+        "description": "words of description",
+        "contact": "mhazel@frhsd.com",
+    },
+    {
+        "name": "Boys Cross Country",
+        "teacher": "Mr. Iliff",
+        "description": "words of description",
+        "contact": "riliff@frhsd.com"
+    },
+    {
+        "name": "",
+        "teacher": "",
+        "description": "words of description",
+        "contact": ""
+    },
+    {
+        "name": "",
+        "teacher": "",
+        "description": "words of description",
+        "contact": ""
+    },
+    {
+        "name": "",
+        "teacher": "",
+        "description": "words of description",
+        "contact": ""
+    },
+    {
+        "name": "",
+        "teacher": "",
+        "description": "words of description",
+        "contact": ""
+    }
+]
