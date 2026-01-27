@@ -6,7 +6,7 @@ body {
     "Segoe UI",
     Roboto,
     sans-serif;
-  background-color: #c6d4ff;
+  background-color: #c6d4ff !important;
   color: #212529;
   margin: 0;
   padding: 0;
