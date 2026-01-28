@@ -183,11 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const col = document.createElement('div');
                 col.className = 'col';
 
+                const descriptionHTML = isClubbing
+                    ? `<p><strong>Description:</strong> ${item.description || 'No description available.'}</p>`
+                    : '';
+
                 col.innerHTML = `
                     <div class="club-card">
                         <h3>${item.name || 'Unnamed'}</h3>
                         <p><strong>${roleLabel}:</strong> ${item.teacher || item.coach || 'TBD'}</p>
-                        <p><strong>Description:</strong> ${item.description || 'No description available.'}</p>
+                        ${descriptionHTML}
                         <p><strong>Contact:</strong> ${item.contact || 'N/A'}</p>
                         <p><strong>Location:</strong> ${item.location || 'TBD'}</p>
                     </div>
@@ -204,9 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-// Array of carousel images
+// ── Carousel ────────────────────────────────────────────────
 const carouselImages = [
     'imgs/main.webp',
     'imgs/sky.webp',
@@ -216,40 +218,31 @@ const carouselImages = [
     'imgs/botc.jpg',
 ];
 
-const CAROUSEL_WIDTH = 600;
 const CAROUSEL_HEIGHT = 400;
 
-// Initialize carousel with images
 function initCarousel() {
     const carouselInner = document.querySelector('.carousel-inner');
+    if (!carouselInner) return;
 
-    // Clear all existing carousel items
-    const items = carouselInner.querySelectorAll('.carousel-item');
-    items.forEach((item) => {
-        item.remove();
-    });
+    carouselInner.querySelectorAll('.carousel-item').forEach(item => item.remove());
 
-    // Add all images from the array
     carouselImages.forEach((imagePath, index) => {
         const carouselItem = document.createElement('div');
         carouselItem.className = 'carousel-item';
         if (index === 0) carouselItem.classList.add('active');
 
-        // Container for uniform sizing with letterboxing
         const container = document.createElement('div');
-        container.style.width = '100%';
         container.style.height = CAROUSEL_HEIGHT + 'px';
-        container.style.backgroundColor = 'white';
         container.style.display = 'flex';
         container.style.alignItems = 'center';
         container.style.justifyContent = 'center';
+        container.style.backgroundColor = 'white';
 
         const img = document.createElement('img');
         img.src = imagePath;
         img.alt = 'MHS Logo';
         img.style.maxWidth = '100%';
         img.style.maxHeight = '100%';
-        img.style.display = 'block';
         img.style.objectFit = 'contain';
 
         container.appendChild(img);
@@ -258,7 +251,4 @@ function initCarousel() {
     });
 }
 
-// Initialize on page load - must run after the first DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    initCarousel();
-});
+document.addEventListener('DOMContentLoaded', initCarousel);
