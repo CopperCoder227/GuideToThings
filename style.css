@@ -6,7 +6,7 @@ body {
     "Segoe UI",
     Roboto,
     sans-serif;
-  background-color: #f8f9fa;
+  background-color: #c6d4ff !important;
   color: #212529;
   margin: 0;
   padding: 0;
@@ -39,7 +39,8 @@ body {
 /* Sidebar - slide-in from left (reliable mobile/desktop) */
 .sidebar {
   position: fixed;
-  inset: 0 auto 0 -280px; /* top right bottom left */
+  inset: 0 auto 0 -280px;
+  /* top right bottom left */
   width: 280px;
   height: 100vh;
   background: #2c2c2c;
@@ -81,8 +82,9 @@ main {
   transition: padding-left 0.35s ease;
 }
 
-.sidebar.active ~ main {
-  padding-left: 300px; /* push content right when sidebar open */
+.sidebar.active~main {
+  padding-left: 300px;
+  /* push content right when sidebar open */
 }
 
 /* ── Club Cards ──────────────────────────────────────── */
@@ -93,7 +95,8 @@ main {
   border: 1px solid #e0e0e0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   transition: all 0.18s ease;
-  height: 100%; /* makes cards same height in row */
+  height: 100%;
+  /* makes cards same height in row */
 }
 
 .club-card:hover {
@@ -122,10 +125,13 @@ main {
     width: 85vw;
     max-width: 320px;
   }
+
   .sidebar.active {
     transform: translateX(85vw);
   }
-  .sidebar.active ~ main {
-    padding-left: 20px; /* less push on small screens */
+
+  .sidebar.active~main {
+    padding-left: 20px;
+    /* less push on small screens */
   }
 }

@@ -30,7 +30,17 @@
   </nav>
 
   <header>
-    <div class="container-fluid bg-dark text-white p-3">
+    <div class="container-fluid bg-dark text-white p-3"> <!-- Search Bar -->
+      <div class="search-container" style="position: absolute; top: 15px; right: 20px; width: 250px;">
+        <input type="text" id="searchInput" placeholder="Search clubs, sports, keywords..." class="form-control"
+          autocomplete="off" style="font-size: 14px;">
+        <div id="searchDropdown" class="search-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; 
+                    color: black; border: 1px solid #ccc; border-radius: 4px; max-height: 300px; 
+                    overflow-y: auto; z-index: 1000; width: 100%; margin-top: 5px;"></div>
+      </div>
+      <br>
+      <br>
+
       <div id="logoCarousel" class="carousel slide mx-auto" style="max-width: 650px;" data-bs-ride="carousel">
         <div class="carousel-inner">
         </div>
@@ -43,6 +53,37 @@
       </div>
       <h1 class="text-center mt-3">MHS Clubs & Sports</h1>
     </div>
+
+    <div>
+      <h3 class="text-center mt-3"> Click the nav bar to look at the clubs and sports based on season, or use the search
+        bar to look up a specific club or sport and find their information!</h3>
+    </div>
+
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sports</h5>
+              <p class="card-text">Explore MHS sports organized by season. Browse through Fall, Winter, and Spring
+                sports to discover different athletic programs available to students. Each sport includes detailed
+                information about the team, coaches, and how to get involved.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Clubs</h5>
+              <p class="card-text">Discover our diverse range of student clubs. Whether you're interested in academics,
+                arts, service, or hobbies, there's a club for you. Find club descriptions, meeting times, and
+                information about how to join.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </header>
 
 
