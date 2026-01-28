@@ -2,7 +2,6 @@
  {
         "name": "Basketball - Boys",
         "coach": "Mr. Reuter",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -11,7 +10,6 @@
  {
         "name": "Basketball - Girls",
         "coach": "Mr. Hagensen",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -20,7 +18,6 @@
  {
         "name": "Competition Cheer",
         "coach": "Ms. Ludden",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "Varies"
     },
@@ -29,7 +26,6 @@
  {
         "name": "Competition Dance",
         "coach": "Ms. Parrino",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
@@ -38,42 +34,35 @@
  {
         "name": "Ice Hockey",
         "coach": "Mr. D’Appolonia",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Swimming",
         "coach": "Ms. Stumbaugh",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Winter Track",
-        "coach": "Mr. Iliff",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Wrestling",
         "coach": "Mr. Frankel",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Basketball - Boys",
         "coach": "Mr. Reuter",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     },
      {
         "name": "Basketball - Girls",
         "coach": "Mr. Hagensen",
-        "description": "words of description",
         "contact": "contact",
 	    "location": "spot"
     }
