@@ -1,38 +1,213 @@
 [
     {
-        "name": "Girls Cross Country",
+        "name": "ALSO (African American Latino Student Organization)",
+        "teacher": "Ms. Cooke",
+        "description": "Celebrates and expands knowledge of African-American and Latin-American culture while promoting diversity and cultural appreciation.",
+        "contact": "ecooke@frhsd.com"
+    },
+    {
+        "name": "Asian Club",
+        "teacher": "Ms. Patel",
+        "description": "Explores Asian culture through things such as cultural events. Open to all students and welcoming to everyone.",
+        "contact": "spatel@frhsd.com"
+    },
+    {
+        "name": "Chess Club",
+        "teacher": "Mr. Carlo",
+        "description": "Play chess and improve your skills with other students. Meets every Wednesday 3-4pm in A229. All chess boards provided.",
+        "contact": "jcarlo@frhsd.com"
+    },
+    {
+        "name": "Concert Band",
+        "teacher": "Mr. Ippolito",
+        "description": "Open to all musicians from beginner to advanced. Performs in school and community concerts. Rehearsals are after school about once a week.",
+        "contact": "mippolito@frhsd.com"
+    },
+    {
+        "name": "Concert Choir",
+        "teacher": "Mr. Ippolito",
+        "description": "Open to all singers from beginner to advanced. Performs in school and community concerts. Rehearsals once a week before or after school.",
+        "contact": "mippolito@frhsd.com"
+    },
+    {
+        "name": "Connect4Cancer",
+        "teacher": "Ms. Fontanilla",
+        "description": "Raises awareness for various types of cancer through fundraisers, events, and activities.",
+        "contact": "mfontanilla@frhsd.com"
+    },
+       {
+        "name": "DECA",
+        "teacher": "Mr. Varrial and Ms.Bendik",
+        "description": "National organization for marketing students. Promotes marketing through leadership training, community service, and competitions at regional, state, and national levels.",
+        "contact": "cvarrial@frhsd.com and nbendik@frhsd.com"
+    },
+       {
+        "name": "Hitching Post",
+        "teacher": "Dr. Patel",
+        "description": "School newspaper providing opportunities to write, edit, and publish articles on topics important to MHS and the community. Develop communication and journalism skills.",
+        "contact": "spatel@frhsd.com"
+    },
+       {
+        "name": "HOSA (Health Occupations Students of America)",
+        "teacher": "Ms. Foti",
+        "description": "National club preparing students for careers in healthcare. Monthly meetings and competitions at state conference in March.",
+        "contact": "afoti@frhsd.com"
+    },
+       {
+        "name": "Italian Club",
+        "teacher": "Ms. Raineri",
+        "description": "The Italian Club seeks to celebrate and promote Italian and Italian-American cultures by engaging students in the Italian culture through film, stories, games, sports, art and food.",
+        "contact": "eraineri@frhsd.com"
+    },
+       {
+        "name": "Jazz Ensemble",
+        "teacher": "Mr. Ippolito",
+        "description": "Enrichment ensemble meeting after school once or twice a week. Open to music program students. Performs on traditional jazz band instruments.",
+        "contact": "mippolito@frhsd.com"
+    },
+       {
+        "name": "Jewish Student Union",
+        "teacher": "Mr. Pirl",
+        "description": "Our mission is to create welcoming and vibrant Jewish communities for teens to learn and connect with each other, explore Jewish culture and history, and discover opportunities for deeper engagement.",
+        "contact": "epirl@frhsd.com"
+    },
+       {
+        "name": "Key Club",
+        "teacher": "Dr. Patel",
+        "description": "International student-led service organization with over 270,000 members. Focus on community service, building character, and leadership development. Current district task: NJ Hunger.",
+        "contact": "spatel@frhsd.com"
+    },
+       {
+        "name": "LEO Club",
+        "teacher": "Ms. Foti",
+        "description": "Leadership, Experience, and Opportunity Club empowering students to serve communities, encourage peace, and develop leadership skills. Meets monthly for volunteer opportunities and community service projects.",
+        "contact": "afoti@frhsd.com"
+    },
+       {
+        "name": "Marching Band",
+        "teacher": "Mr. Ippolito",
+        "description": "The Marlboro Marching Mustangs perform at all varsity football games, in a number of parades, and other community functions. The Marching band is open to all students and meets after school primarily in the fall. The marching season ends in early November.",
+        "contact": "mippolito@frhsd.com"
+    },
+       {
+        "name": "Marlboro Slavic Society",
+        "teacher": "Ms. Townsend",
+        "description": "Marlboro Slavic Society (MSS) is all about teaching and embracing Slavic cultures through music, fun facts, games and even delicacies. We strive to educate anyone and everyone on Slavic cultures and build a thriving community of people. Everyone is welcome to join, no matter your ethnic background!",
+        "contact": "ttownsend@frhsd.com"
+    },
+       {
+        "name": "Math League",
+        "teacher": "Mr. Sandoval",
+        "description": "Compete in monthly math competitions against local and state schools. Top schools and students win trophies and cash prizes.",
+        "contact": "tsandoval@frhsd.com"
+    },
+       {
+        "name": "Model UN",
+        "teacher": "Ms. Sebastiani",
+        "description": "Model UN simulations engage hundreds of thousands of students each year, helping them to learn more about the principles of the UN and how it functions. Marlboro High School's chapter will compete against neighboring communities to participate in simulations of the UN and how to conduct oneself as a delegate.",
+        "contact": "gsebastiani@frhsd.com"
+    },
+       {
+        "name": "National Honor Society",
+        "teacher": "Ms. Cooke",
+        "description": "The purpose of this organization shall be to create enthusiasm for scholarship, to stimulate a desire to render service, to promote leadership, and to develop character in the students of Marlboro High School. Students eligible for this organization will be notified in the 1st semester of their junior year in order to apply.",
+        "contact": "ecooke@frhsd.com"
+    },
+       {
+        "name": "PAWS (Protecting Animals Without Stability)",
+        "teacher": "Ms. Wolf",
+        "description": "Protecting Animals Without Stability, also known as PAWS, is a club at MHS. Our goal is to help out shelter animals in need.  Each year we hold fundraisers such as  linen drives, toy drives,  and more in order to raise funds and awareness for shelter animals. All proceeds are donated towards the local Monmouth County SPCA.",
+        "contact": "jwolf@frhsd.com"
+    },
+         {
+        "name": "Peer Mentorship Club",
+        "teacher": "Ms. Mokracek and Mr. Scalzo",
+        "description": "Members interact with students of varying special needs during organized social events to encourage peer relationships. Hosts the annual district-wide Spring Games at Marlboro High School.",
+        "contact": "amokracek@frhsd.com and nscalzo@frhsd.com"
+    },
+         {
+        "name": "Pit Orchestra",
+        "teacher": "Mr. Ippolito",
+        "description": "Student instrumentalists performing in the pit orchestra for the school musical are selected by the music director from students in the music performance classes. Students not enrolled in the band program that are interested in this group must audition with the music director.",
+        "contact": "mippolito@frhsd.com"
+    },
+         {
+        "name": "Rainbow Culture Club",
+        "teacher": "Ms. Saraceni",
+        "description": "Rainbow Culture Club, gives students the opportunity to learn about new genders, sexualities, and different parts of the LGBTQIA+ community. It also gives students who identify a safe and open place to be themselves within MHS. Everyone is welcome whether they identify or not!",
+        "contact": "asaraceni@frhsd.com"
+    },
+         {
+        "name": "Rutgers Model Congress",
+        "teacher": "Mr. Yang",
+        "description": "Students simulate work of elected officials, lobbyists, and journalists by researching contemporary issues, drafting laws and resolutions, and debating at conferences. Attendees prepare research papers for competition.",
+        "contact": "eyang@frhsd.com"
+    },
+         {
+        "name": "SADD (Students Against Destructive Decisions)",
+        "teacher": "Ms. Bailey",
+        "description": "Peer leadership organization dedicated to preventing destructive decisions including underage drinking, drug use, impaired driving, teen violence, and depression through positive peer pressure and role modeling.",
+        "contact": "nbailey@frhsd.com"
+    },
+         {
+        "name": "Science League",
+        "teacher": "Ms. Stumbaugh",
+        "description": "Competitive organization allowing students to apply science skills across Biology, Chemistry, Physics, and Environmental Science topics. Compete against other schools with four competitions per year.",
+        "contact": "mstumbaugh@frhsd.com"
+    },
+    
+    {
+    "name": "SCOPE",
+    "teacher": "Mr. Yuhas",
+    "description": "Summer Camp Opportunities Promote Education. It is an organization that provides summer camp scholarships to children from low-income families.  from their website: Our mission is to help children grow and thrive, and to inspire them to make positive contributions to our communities.",
+    "contact": "jyuhas@frhsd.com"
+    },
+    
+    {
+        "name": "Senior Smile Society",
+        "teacher": "Ms. Greenwood",
+        "description": "Senior Smiles aims to enhance the senior citizens’ quality of life and ultimately bring a smile to residents at the Sunrise in Marlboro. We have monthly meetings to create meaningful crafts including holiday baskets, bracelets, bookmarks, and motivational cards for community service opportunities!",
+        "contact": "mgreenwood@frhsd.com"
+    },
+    
+    {
+        "name": "Sources of Strength",
+        "teacher": "Ms. Myers",
+        "description": "National organization dedicated to mental health promotion and suicide prevention through comprehensive wellness programs addressing suicide, violence, bullying, and substance misuse. Members create positive peer impact through connection and support.",
+        "contact": "kmyers@frhsd.com"
+    },
+    
+    {
+        "name": "String Orchestra",
+        "teacher": "Mr. Ippolito",
+        "description": "Open to all musicians from beginner through advanced. Perform on traditional orchestral string instruments in school and community concerts. Rehearsals after school about once a week.",
+        "contact": "mippolito@frhsd.com"
+    },
+        {
+        "name": "Student Council",
         "teacher": "Ms. Hazel",
-        "description": "words of description",
+        "description": "The Executive Board of Student Council provides a foundation for the class councils.  All councils work collaboratively to improve the MHS environment.",
         "contact": "mhazel@frhsd.com"
     },
-    {
-        "name": "Boys Cross Country",
-        "teacher": "Mr. Iliff",
-        "description": "words of description",
-        "contact": "riliff@frhsd.com"
+        {
+        "name": "Technology Student Association (TSA)",
+        "teacher": "Mr. Werntz",
+        "description": "STEM-focused club where members work on competitive events and attend state and national conferences. Provides opportunities to pursue academic challenges with peers who share similar interests.",
+        "contact": "wwerntz@frhsd.com"
     },
-    {
-        "name": "",
-        "teacher": "",
-        "description": "words of description",
-        "contact": ""
+        {
+        "name": "Theatre Society",
+        "teacher": "Mr. Greco",
+        "description": "Students perform and explore acting, technical, and design roles in theater productions, gaining onstage and behind-the-scenes experience.",
+        "contact": "MHSTheaterSociety@aol.com"
     },
-    {
-        "name": "",
-        "teacher": "",
-        "description": "words of description",
-        "contact": ""
-    },
-    {
-        "name": "",
-        "teacher": "",
-        "description": "words of description",
-        "contact": ""
-    },
-    {
-        "name": "",
-        "teacher": "",
-        "description": "words of description",
-        "contact": ""
+        
+        {
+        "name": "Yearbook",
+        "teacher": "Ms. Ransom",
+        "description": "This club creates an annual, quality publication that documents the school year in a fun and creative way",
+        "contact": "Iransom@frhsd.com"
     }
+
+
 ]
