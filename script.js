@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorEl = document.getElementById('error-message');
 
     // ── Decide which JSON file to load ────────────────────────
-    let jsonPath = './data/clubs.json';
+    let jsonPath = './data/clubbing.json';
     let isClubbing = false;
 
     const pathname = window.location.pathname.toLowerCase();
