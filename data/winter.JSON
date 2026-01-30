@@ -1,5 +1,6 @@
 [
  {
+    "image":"icons/basketball.png",
         "name": "Basketball - Boys",
         "coach": "Mr. Reuter",
         "contact": "contact",
@@ -8,6 +9,7 @@
 
 
  {
+    "image":"icons/basketball.png",
         "name": "Basketball - Girls",
         "coach": "Mr. Hagensen",
         "contact": "contact",
@@ -16,6 +18,7 @@
 
 
  {
+        "image": "icons/cheerleaders.png",
         "name": "Competition Cheer",
         "coach": "Ms. Ludden",
         "contact": "contact",
@@ -24,6 +27,7 @@
 
 
  {
+    "image":"icons/dancer.png",
         "name": "Competition Dance",
         "coach": "Ms. Parrino",
         "contact": "contact",
@@ -32,18 +36,21 @@
 
 
  {
+    "image":"icons/ice-hockey.png",
         "name": "Ice Hockey",
         "coach": "Mr. D’Appolonia",
         "contact": "contact",
 	    "location": "spot"
     },
      {
+       "image":"icons/swimming.png",
         "name": "Swimming",
         "coach": "Ms. Stumbaugh",
         "contact": "contact",
 	    "location": "spot"
     },
      {
+       "image":"icons/.png",
         "name": "Winter Track",
         "contact": "contact",
 	    "location": "spot"

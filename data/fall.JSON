@@ -1,36 +1,39 @@
 [
   {
+    "image": "icons/cross-country.png",
     "name": "Girls Cross Country",
     "teacher": "Ms. Hazel",
-
     "contact": "mhazel@frhsd.com",
     "location": "Big Brook Park"
   },
   {
+    "image": "icons/cross-country.png",
     "name": "Boys Cross Country",
     "coach": "Mr. Iliff",
     "contact": "riliff@frhsd.com",
     "location": "Big Brook Park"
   },
   {
+    "image": "icons/volleyball.png",
     "name": "Girls Volleyball",
     "coach": "Mr. Walsh",
     "contact": "mwalsh@frhsd.com x6218",
     "location": "MRHS"
   },
     {
+    "image": "icons/football.png",
         "name": "Football",
         "coach": "Mr. Dagato",
         "contact": "jdagato@frhsd.com x6156",
 	    "location": "MRHS"
     },
     {
+    "image": "icons/tennis.png",
         "name": "Girls Tennis",
-        "coach": "coach",
-        "contact": "contact",
+        "coach": "Ms. Kowalski",
+        "contact": "mkowalski@frhsd.com x6219",
 	    "location": "Marlboro Swim Club"
     },
-
 
  {
         "name": "Girls Soccer",
