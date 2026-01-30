@@ -1,6 +1,6 @@
 [
   {
-    "image": "icons/cross-country.png",
+    "image": "icons/cross-countryg.png",
     "name": "Girls Cross Country",
     "teacher": "Ms. Hazel",
     "contact": "mhazel@frhsd.com",
@@ -36,6 +36,7 @@
     },
 
  {
+    "image":"icons/soccerg.png",
         "name": "Girls Soccer",
         "coach": "Mr. Levi",
         "contact": "contact",
@@ -44,6 +45,7 @@
 
 
  {
+   "image":"icons/soccer.png",
         "name": "Boys Soccer",
         "coach": "Mr. Morris",
         "contact": "contact",
@@ -52,6 +54,7 @@
 
 
  {
+   "image":"icons/gymnastics.png",
         "name": "Gymnastics",
         "coach": "Ms. Fontanilla",
         "contact": "contact",
