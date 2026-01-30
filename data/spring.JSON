@@ -1,5 +1,6 @@
 [
  {
+   "image":"icons/baseball.png",
         "name": "Baseball",
         "coach": "Mr. Navarette",
         "contact": "contact",
@@ -8,6 +9,7 @@
 
 
  {
+   "image":"icons/golf-ball.png",
         "name": "Golf - Boys",
         "coach": "Mr. Anderson",
         "contact": "contact",
@@ -16,6 +18,7 @@
 
 
  {
+      "image":"icons/golf-ball.png",
         "name": "Golf - Girls",
         "coach": "Mr. McGeough",
         "contact": "contact",
@@ -24,6 +27,7 @@
 
 
  {
+      "image":"icons/lacrosse.png",
         "name": "Lacrosse - Boys",
         "coach": "Mr. Oplinger",
         "contact": "contact",
@@ -32,12 +36,15 @@
 
 
  {
+      "image":"icons/lacrosse.png",
         "name": "Lacrosse - Girls",
         "coach": "Ms. DiMaulo",
         "contact": "contact",
 	    "location": "spot"
     },
+    
      {
+         "image":"icons/softball.png",
         "name": "Softball",
         "coach": "Mr. Scalzo",
         "contact": "contact",
@@ -46,6 +53,7 @@
 
 
  {
+      "image":"icons/tennis.png",
         "name": "Tennis - Boys",
         "coach": "Mr. Levi",
         "contact": "contact",
@@ -54,6 +62,7 @@
 
 
  {
+    "image":"icons/track.png",
         "name": "Track & Field - Boys",
         "coach": "Mr. Sessa",
         "contact": "contact",
@@ -62,6 +71,7 @@
 
 
  {
+    "image":"icons/track.png",
         "name": "Track & Field - Girls",
         "coach": "Mr. Iliff",
         "contact": "contact",
@@ -70,6 +80,7 @@
 
 
  {
+    "image":"icons/volleyball.png",
         "name": "Volleyball - Boys",
         "coach": "Mr. Masi",
         "contact": "contact",
