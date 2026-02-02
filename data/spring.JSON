@@ -3,7 +3,7 @@
    "image":"icons/baseball.png",
         "name": "Baseball",
         "coach": "Mr. Navarette",
-        "contact": "contact",
+        "contact": "anavarette@frhsd.com",
 	    "location": "MRHS"
     },
 
@@ -12,7 +12,7 @@
    "image":"icons/golf-ball.png",
         "name": "Golf - Boys",
         "coach": "Mr. Anderson",
-        "contact": "contact",
+        "contact": "randerson@frhsd.com",
 	    "location": "Bella Vista Country Club"
     },
 
@@ -21,7 +21,7 @@
       "image":"icons/golf-ball.png",
         "name": "Golf - Girls",
         "coach": "Mr. McGeough",
-        "contact": "contact",
+        "contact": "tmcgeough@frhsd.com",
 	    "location": "Bella Vista Country Club"
     },
 
@@ -30,8 +30,8 @@
       "image":"icons/lacrosse.png",
         "name": "Lacrosse - Boys",
         "coach": "Mr. Oplinger",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "woplinger@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -39,16 +39,16 @@
       "image":"icons/lacrosse.png",
         "name": "Lacrosse - Girls",
         "coach": "Ms. DiMaulo",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mdimaulo@frhsd.com",
+	    "location": "MRHS"
     },
     
      {
          "image":"icons/softball.png",
         "name": "Softball",
         "coach": "Mr. Scalzo",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "nscalzo@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -56,8 +56,8 @@
       "image":"icons/tennis.png",
         "name": "Tennis - Boys",
         "coach": "Mr. Levi",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mlevi@frhsd.com",
+	    "location": "Marlboro Swim Club"
     },
 
 
@@ -65,8 +65,8 @@
     "image":"icons/track.png",
         "name": "Track & Field - Boys",
         "coach": "Mr. Sessa",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "asessa@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -74,8 +74,8 @@
     "image":"icons/track.png",
         "name": "Track & Field - Girls",
         "coach": "Mr. Iliff",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "riliff@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -83,8 +83,8 @@
     "image":"icons/volleyball.png",
         "name": "Volleyball - Boys",
         "coach": "Mr. Masi",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "kmasi@frhsd.com",
+	    "location": "MRHS"
     }
 ]
 

@@ -17,21 +17,21 @@
     "image": "icons/volleyball.png",
     "name": "Girls Volleyball",
     "coach": "Mr. Walsh",
-    "contact": "mwalsh@frhsd.com x6218",
+    "contact": "mwalsh@frhsd.com",
     "location": "MRHS"
   },
     {
     "image": "icons/football.png",
         "name": "Football",
         "coach": "Mr. Dagato",
-        "contact": "jdagato@frhsd.com x6156",
+        "contact": "jdagato@frhsd.com",
 	    "location": "MRHS"
     },
     {
     "image": "icons/tennis.png",
         "name": "Girls Tennis",
         "coach": "Ms. Kowalski",
-        "contact": "mkowalski@frhsd.com x6219",
+        "contact": "mkowalski@frhsd.com",
 	    "location": "Marlboro Swim Club"
     },
 
@@ -39,8 +39,8 @@
     "image":"icons/soccerg.png",
         "name": "Girls Soccer",
         "coach": "Mr. Levi",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mlevi@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -48,8 +48,8 @@
    "image":"icons/soccer.png",
         "name": "Boys Soccer",
         "coach": "Mr. Morris",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "rmorris@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -57,7 +57,7 @@
    "image":"icons/gymnastics.png",
         "name": "Gymnastics",
         "coach": "Ms. Fontanilla",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mfontanilla@frhsd.com",
+	    "location": "MRHS"
     }
 ]

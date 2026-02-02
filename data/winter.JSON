@@ -3,8 +3,8 @@
     "image":"icons/basketball.png",
         "name": "Basketball - Boys",
         "coach": "Mr. Reuter",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mreuter@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -12,8 +12,8 @@
     "image":"icons/basketballg.png",
         "name": "Basketball - Girls",
         "coach": "Mr. Hagensen",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "bhagensen@frhsd.com",
+	    "location": "MRHS"
     },
 
 
@@ -21,7 +21,7 @@
         "image": "icons/cheerleaders.png",
         "name": "Competition Cheer",
         "coach": "Ms. Ludden",
-        "contact": "contact",
+        "contact": "kludden@frhsd.com",
 	    "location": "Varies"
     },
 
@@ -30,8 +30,8 @@
     "image":"icons/dancer.png",
         "name": "Competition Dance",
         "coach": "Ms. Parrino",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "aparrino@frhsd.com",
+	    "location": "Varies"
     },
 
 
@@ -39,39 +39,29 @@
     "image":"icons/ice-hockey.png",
         "name": "Ice Hockey",
         "coach": "Mr. D’Appolonia",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "edappolonia@frhsd.com",
+	    "location": "Varies"
     },
      {
        "image":"icons/swimming.png",
         "name": "Swimming",
         "coach": "Ms. Stumbaugh",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "mstumbaugh@frhsd.com",
+	    "location": "Freehold YMCA"
     },
      {
        "image":"icons/.png",
         "name": "Winter Track",
-        "contact": "contact",
-	    "location": "spot"
+         "coach": "Mr. Iliff",
+        "contact": "riliff@frhsd.com",
+	    "location": "Varies"
     },
      {
+      "image":"icons/wrestling.png",
         "name": "Wrestling",
         "coach": "Mr. Frankel",
-        "contact": "contact",
-	    "location": "spot"
-    },
-     {
-        "name": "Basketball - Boys",
-        "coach": "Mr. Reuter",
-        "contact": "contact",
-	    "location": "spot"
-    },
-     {
-        "name": "Basketball - Girls",
-        "coach": "Mr. Hagensen",
-        "contact": "contact",
-	    "location": "spot"
+        "contact": "cfrankel@frhsd.com",
+	    "location": "MRHS"
     }
 ]
 
