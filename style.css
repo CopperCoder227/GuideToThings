@@ -7,6 +7,12 @@ body {
     Roboto,
     sans-serif;
   background-image: linear-gradient(to bottom, rgb(136, 211, 255), rgb(0, 162, 255)) !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  text-align: center;
+
   color: #212529;
   margin: 0;
   padding: 0;
@@ -87,6 +93,18 @@ main {
   /* push content right when sidebar open */
 }
 
+
+/* Apply gold banner only to the page header */
+.page-header {
+  background-color: #f6b913 !important;
+  padding: 1.25rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+/* keep .container default behavior — removed global override */
+
+
 /* ── Club Cards ──────────────────────────────────────── */
 .club-card {
   background: white;
@@ -135,13 +153,3 @@ main {
     /* less push on small screens */
   }
 }
-
-/* Apply gold banner only to the page header */
-.page-header {
-  background-color: #f6b913 !important;
-  padding: 1.25rem 1rem;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
-}
-
-/* keep .container default behavior — removed global override */
