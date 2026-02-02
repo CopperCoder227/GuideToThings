@@ -6,7 +6,7 @@ body {
     "Segoe UI",
     Roboto,
     sans-serif;
-  background-color: #c6d4ff !important;
+  background-color: rgb(6, 164, 255) !important;
   color: #212529;
   margin: 0;
   padding: 0;
@@ -107,7 +107,7 @@ main {
 .club-card h3 {
   margin: 0 0 0.9rem 0;
   font-size: 1.45rem;
-  color: #1a3c5e;
+  color: blue;
 }
 
 .club-card p {
