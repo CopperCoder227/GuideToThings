@@ -1,0 +1,17 @@
+h1 {
+    font: bold 2em Arial, sans-serif!important;
+    color: black !important;
+}
+
+main {
+    color: black!important;
+}
+
+#clubs-container {
+    background-color: blue!important;
+}
+
+
+.container {
+    background-color: black!important;
+}
