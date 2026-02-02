@@ -1,17 +1,22 @@
 h1 {
-    font: bold 2em Arial, sans-serif!important;
+    font: bold 2em Arial, sans-serif !important;
     color: black !important;
 }
 
 main {
-    color: black!important;
+    color: black !important;
 }
 
 #clubs-container {
-    background-color: blue!important;
+    background-color: transparent !important;
 }
 
-
-.container {
-    background-color: black!important;
+/* Apply gold banner only to the page header */
+.page-header {
+    background-color: #f6b913 !important;
+    padding: 1.25rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
 }
+
+/* keep .container default behavior — removed global override */
