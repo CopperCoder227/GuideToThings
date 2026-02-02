@@ -19,10 +19,170 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Card loading only if container exists ─────────────────
     const container = document.getElementById('clubs-container');
-    if (!container) return;
-
     const loading = document.getElementById('loading');
     const errorEl = document.getElementById('error-message');
+
+    // ── Global search (indexes all data files for suggestions) ──
+    const searchInput = document.getElementById('searchInput');
+    const searchDropdown = document.getElementById('searchDropdown');
+
+    let searchIndex = [];
+
+    function fetchAllDataFiles() {
+        const sources = [
+            { file: './data/clubbing.JSON', page: 'clubs.html' },
+            { file: './data/fall.JSON', page: 'hayley-fsport.html' },
+            { file: './data/winter.JSON', page: 'hayley-wsport.html' },
+            { file: './data/spring.JSON', page: 'hayley-ssport.html' },
+        ];
+
+        return Promise.all(sources.map(s =>
+            fetch(s.file)
+                .then(r => r.ok ? r.json() : [])
+                .then(arr => (Array.isArray(arr) ? arr.map(it => ({ name: String(it.name || '').trim(), page: s.page, data: it })) : []))
+                .catch(() => [])
+        )).then(results => {
+            searchIndex = results.flat().filter(e => e.name);
+        });
+    }
+
+    function getTopMatches(q, limit = 3) {
+        if (!q) return [];
+        q = q.toLowerCase();
+        const scored = searchIndex.map(e => {
+            const name = e.name;
+            const nl = name.toLowerCase();
+            let score = 0;
+            if (nl.startsWith(q)) score += 100;
+            if (nl.includes(q)) score += 1;
+            return { ...e, score };
+        }).filter(e => e.score > 0)
+            .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+
+        return scored.slice(0, limit);
+    }
+
+    function showSuggestions(matches) {
+        if (!searchDropdown) return;
+        if (!matches.length) {
+            searchDropdown.style.display = 'none';
+            searchDropdown.innerHTML = '';
+            return;
+        }
+
+        searchDropdown.innerHTML = matches.map(m => `<div class="px-2 py-1 suggestion" style="cursor:pointer">${m.name}</div>`).join('');
+        searchDropdown.style.display = 'block';
+
+        searchDropdown.querySelectorAll('.suggestion').forEach((el, idx) => {
+            el.addEventListener('click', () => {
+                const name = matches[idx].name;
+                searchInput.value = name;
+                searchDropdown.style.display = 'none';
+
+                // If we're on a page with cards, filter there; otherwise navigate to the relevant page
+                if (container) {
+                    filterCards(name.toLowerCase());
+                } else {
+                    window.location.href = matches[idx].page + '?q=' + encodeURIComponent(name);
+                }
+            });
+        });
+    }
+
+    function filterCards(query) {
+        if (!container) return;
+        const cols = container.querySelectorAll('.col');
+        const q = String(query || '').toLowerCase();
+        cols.forEach(col => {
+            const titleEl = col.querySelector('.club-card h3');
+            const text = (titleEl ? titleEl.textContent : col.textContent || '').toLowerCase();
+            col.style.display = q ? (text.includes(q) ? '' : 'none') : '';
+        });
+    }
+
+    // Highlight a card by exact name (case-insensitive), scroll into view, then remove highlight after a short delay
+    function highlightCardByName(name) {
+        if (!container || !name) return;
+        const q = String(name).trim().toLowerCase();
+        if (!q) return;
+        const titleEls = Array.from(container.querySelectorAll('.club-card h3'));
+        const match = titleEls.find(h => h.textContent.trim().toLowerCase() === q);
+        if (!match) return;
+        const card = match.closest('.club-card');
+        if (!card) return;
+
+        // Apply highlight class and smooth scroll
+        card.classList.add('search-highlight');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+            card.classList.remove('search-highlight');
+        }, 3000);
+    }
+
+    // wire up search input
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const q = String(e.target.value || '').trim();
+            if (!q) {
+                showSuggestions([]);
+                return;
+            }
+
+            const matches = getTopMatches(q);
+            showSuggestions(matches);
+
+            // DO NOT filter or hide cards while typing — keep the list unchanged
+        });
+
+        // hide dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (searchDropdown && !e.target.closest('.search-container')) {
+                searchDropdown.style.display = 'none';
+            }
+        });
+
+        // handle Enter to accept first suggestion — fallback to top match if none shown
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const first = (searchDropdown && searchDropdown.querySelector('.suggestion')) || null;
+                if (first) {
+                    first.click();
+                    e.preventDefault();
+                    return;
+                }
+
+                // no dropdown suggestion selected — navigate/highlight top match if available
+                const q = String(searchInput.value || '').trim();
+                if (q) {
+                    const top = getTopMatches(q, 1)[0];
+                    if (top) {
+                        const currentPath = window.location.pathname.toLowerCase();
+                        if (currentPath.includes(top.page) || (top.page === 'clubs.html' && currentPath.includes('clubs'))) {
+                            // same page — highlight
+                            highlightCardByName(top.name);
+                        } else {
+                            // navigate to the correct page and highlight there
+                            window.location.href = top.page + '?q=' + encodeURIComponent(top.name);
+                        }
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+    }
+
+    // fetch the data index for suggestions (do it regardless of whether this page shows cards)
+    fetchAllDataFiles().then(() => {
+        // If URL has ?q=... prefill and apply filter or navigate
+        const params = new URLSearchParams(window.location.search);
+        const q = params.get('q');
+        if (q && searchInput) {
+            searchInput.value = q;
+            if (container) filterCards(q.toLowerCase());
+        }
+    });
 
     // ── Decide which JSON file to load ────────────────────────
     let jsonPath = './data/clubs.json';
