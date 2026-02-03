@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "Iliff"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
     ]
 }
