@@ -121,6 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleSuggestionSelection(item) {
         const currentPage = getCurrentPageFilename();
+        // clear suggestions and input immediately when a selection is made
+        clearSuggestions();
+        if (searchInput) searchInput.value = '';
+
         if (currentPage && item.page && currentPage === item.page) {
             // same page — highlight the specific item
             highlightCardByName(item.name, item.page);
@@ -180,10 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
         match.classList.add('search-highlight');
         match.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // remove highlight after 3 seconds
+        // remove highlight after 10 seconds (then fade back to default)
         setTimeout(() => {
             match.classList.remove('search-highlight');
-        }, 3000);
+        }, 10000);
     }
 
     // wire up search input
@@ -240,6 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (q && searchInput) {
             searchInput.value = q;
             highlightCardByName(q, currentPage);
+            // clear the search input once we've applied the highlight
+            searchInput.value = '';
+            clearSuggestions();
         }
     });
 

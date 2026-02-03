@@ -143,7 +143,7 @@ main {
   /* faint yellow */
   box-shadow: 0 0 0 6px rgba(246, 185, 19, 0.25) !important;
   transform: translateY(-4px);
-  transition: background-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  transition: background-color 1s ease, box-shadow 0.25s ease, transform 0.2s ease;
   position: relative;
   z-index: 5;
 }
@@ -158,6 +158,39 @@ main {
   font-weight: 700;
   background: #f8f9fa;
   cursor: pointer;
+}
+
+/* Make the search bar fixed/sticky to the top-right on all pages and override inline styles */
+.search-container {
+  position: fixed !important;
+  top: 15px !important;
+  right: 20px !important;
+  width: 250px !important;
+  z-index: 1200;
+}
+
+/* Ensure the dropdown is positioned correctly relative to the fixed search container */
+.search-container .search-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive: avoid covering content on small screens and allow the search to expand */
+@media (max-width: 576px) {
+  .search-container {
+    width: 78vw !important;
+    right: 6% !important;
+    top: 12px !important;
+  }
+
+  /* give a small top offset so the fixed search does not overlap the page header */
+  body {
+    padding-top: 56px;
+  }
 }
 
 /* Mobile adjustments */
