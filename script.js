@@ -39,85 +39,150 @@ document.addEventListener('DOMContentLoaded', () => {
         return Promise.all(sources.map(s =>
             fetch(s.file)
                 .then(r => r.ok ? r.json() : [])
-                .then(arr => (Array.isArray(arr) ? arr.map(it => ({ name: String(it.name || '').trim(), page: s.page, data: it })) : []))
+                .then(arr => (Array.isArray(arr) ? arr.map(it => {
+                    const name = String(it.name || '').trim();
+                    // build a keyword set from name + description + any aliases
+                    const desc = String(it.description || it.desc || '');
+                    const alias = String(it.aliases || it.alias || '');
+                    const words = (name + ' ' + desc + ' ' + alias).toLowerCase().match(/\b\w+\b/g) || [];
+                    const keywords = Array.from(new Set([name.toLowerCase(), ...words]));
+                    return { name, page: s.page, pageLabel: getPageLabel(s.page), data: it, keywords, isClubbing: s.page === 'clubs.html' };
+                }) : []))
                 .catch(() => [])
         )).then(results => {
-            searchIndex = results.flat().filter(e => e.name);
+            // flatten, drop empty names, and assign stable ids
+            searchIndex = results.flat().filter(e => e.name).map((e, i) => ({ id: i, ...e }));
         });
     }
 
-    function getTopMatches(q, limit = 3) {
+    function scoreMatch(item, q) {
+        const name = item.name || '';
+        const nl = name.toLowerCase();
+        let score = 0;
+        if (nl === q) score += 1000; // exact match
+        if (nl.startsWith(q)) score += 200;
+        if (nl.includes(q)) score += 50;
+
+        // keyword scoring
+        for (const kw of (item.keywords || [])) {
+            if (kw === q) score += 400;
+            else if (kw.startsWith(q)) score += 100;
+            else if (kw.includes(q)) score += 10;
+        }
+
+        return score;
+    }
+
+    function getTopMatches(q, maxResults = 50) {
         if (!q) return [];
         q = q.toLowerCase();
-        const scored = searchIndex.map(e => {
-            const name = e.name;
-            const nl = name.toLowerCase();
-            let score = 0;
-            if (nl.startsWith(q)) score += 100;
-            if (nl.includes(q)) score += 1;
-            return { ...e, score };
-        }).filter(e => e.score > 0)
+        const scored = searchIndex.map(e => ({ ...e, score: scoreMatch(e, q) }))
+            .filter(e => e.score > 0)
             .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
 
-        return scored.slice(0, limit);
+        return scored.slice(0, maxResults);
+    }
+
+    function clearSuggestions() {
+        if (!searchDropdown) return;
+        searchDropdown.style.display = 'none';
+        searchDropdown.innerHTML = '';
     }
 
     function showSuggestions(matches) {
         if (!searchDropdown) return;
         if (!matches.length) {
-            searchDropdown.style.display = 'none';
-            searchDropdown.innerHTML = '';
+            clearSuggestions();
             return;
         }
 
-        searchDropdown.innerHTML = matches.map(m => `<div class="px-2 py-1 suggestion" style="cursor:pointer">${m.name}</div>`).join('');
+        // show all matches but constrain height so top 3 are visible with a scrollbar for the rest
+        searchDropdown.innerHTML = matches.map((m, idx) =>
+            `<div class="px-2 py-1 suggestion" data-idx="${idx}" style="cursor:pointer; text-align:left;">` +
+            `${escapeHtml(m.name)} <small class="text-muted"> — ${escapeHtml(m.pageLabel || m.page.replace('.html', ''))}</small>` +
+            `</div>`
+        ).join('');
+
         searchDropdown.style.display = 'block';
+        searchDropdown.style.maxHeight = '120px';
+        searchDropdown.style.overflowY = 'auto';
 
-        searchDropdown.querySelectorAll('.suggestion').forEach((el, idx) => {
-            el.addEventListener('click', () => {
-                const name = matches[idx].name;
-                searchInput.value = name;
-                searchDropdown.style.display = 'none';
-
-                // If we're on a page with cards, filter there; otherwise navigate to the relevant page
-                if (container) {
-                    filterCards(name.toLowerCase());
-                } else {
-                    window.location.href = matches[idx].page + '?q=' + encodeURIComponent(name);
-                }
+        searchDropdown.querySelectorAll('.suggestion').forEach(el => {
+            el.addEventListener('click', (ev) => {
+                const idx = Number(el.dataset.idx);
+                const item = matches[idx];
+                if (!item) return;
+                searchInput.value = item.name;
+                clearSuggestions();
+                handleSuggestionSelection(item);
             });
         });
     }
 
-    function filterCards(query) {
-        if (!container) return;
-        const cols = container.querySelectorAll('.col');
-        const q = String(query || '').toLowerCase();
-        cols.forEach(col => {
-            const titleEl = col.querySelector('.club-card h3');
-            const text = (titleEl ? titleEl.textContent : col.textContent || '').toLowerCase();
-            col.style.display = q ? (text.includes(q) ? '' : 'none') : '';
-        });
+    function handleSuggestionSelection(item) {
+        const currentPage = getCurrentPageFilename();
+        if (currentPage && item.page && currentPage === item.page) {
+            // same page — highlight the specific item
+            highlightCardByName(item.name, item.page);
+        } else {
+            // navigate to the proper page and pass the query so it highlights on load
+            window.location.href = item.page + '?q=' + encodeURIComponent(item.name);
+        }
     }
 
-    // Highlight a card by exact name (case-insensitive), scroll into view, then remove highlight after a short delay
-    function highlightCardByName(name) {
+    function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": "&#39;" }[s]));
+    }
+
+    function getCurrentPageFilename() {
+        const parts = window.location.pathname.split('/');
+        return parts[parts.length - 1] || '';
+    }
+
+    function getPageLabel(page) {
+        const map = {
+            'clubs.html': 'Clubs',
+            'hayley-fsport.html': 'Fall Sports',
+            'hayley-wsport.html': 'Winter Sports',
+            'hayley-ssport.html': 'Spring Sports'
+        };
+        return map[page] || (page ? page.replace('.html', '') : '');
+    }
+
+    function unhighlightAll() {
+        if (!container) return;
+        container.querySelectorAll('.club-card.search-highlight').forEach(el => el.classList.remove('search-highlight'));
+    }
+
+    function highlightCardByName(name, page) {
         if (!container || !name) return;
         const q = String(name).trim().toLowerCase();
         if (!q) return;
-        const titleEls = Array.from(container.querySelectorAll('.club-card h3'));
-        const match = titleEls.find(h => h.textContent.trim().toLowerCase() === q);
+
+        // unhighlight everything first
+        unhighlightAll();
+
+        const cards = Array.from(container.querySelectorAll('.club-card'));
+        // prefer the card that matches both name and page (if page provided)
+        const match = cards.find(card => {
+            const h = card.querySelector('h3');
+            if (!h) return false;
+            const n = h.textContent.trim().toLowerCase();
+            const p = card.dataset.page || '';
+            if (page) return n === q && p === page;
+            return n === q;
+        }) || cards.find(card => {
+            const h = card.querySelector('h3');
+            return h && h.textContent.trim().toLowerCase() === q;
+        });
+
         if (!match) return;
-        const card = match.closest('.club-card');
-        if (!card) return;
+        match.classList.add('search-highlight');
+        match.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Apply highlight class and smooth scroll
-        card.classList.add('search-highlight');
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Remove highlight after 3 seconds
+        // remove highlight after 3 seconds
         setTimeout(() => {
-            card.classList.remove('search-highlight');
+            match.classList.remove('search-highlight');
         }, 3000);
     }
 
@@ -126,20 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('input', (e) => {
             const q = String(e.target.value || '').trim();
             if (!q) {
-                showSuggestions([]);
+                clearSuggestions();
                 return;
             }
 
             const matches = getTopMatches(q);
             showSuggestions(matches);
-
-            // DO NOT filter or hide cards while typing — keep the list unchanged
         });
 
         // hide dropdown on outside click
         document.addEventListener('click', (e) => {
             if (searchDropdown && !e.target.closest('.search-container')) {
-                searchDropdown.style.display = 'none';
+                clearSuggestions();
             }
         });
 
@@ -158,14 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (q) {
                     const top = getTopMatches(q, 1)[0];
                     if (top) {
-                        const currentPath = window.location.pathname.toLowerCase();
-                        if (currentPath.includes(top.page) || (top.page === 'clubs.html' && currentPath.includes('clubs'))) {
-                            // same page — highlight
-                            highlightCardByName(top.name);
-                        } else {
-                            // navigate to the correct page and highlight there
-                            window.location.href = top.page + '?q=' + encodeURIComponent(top.name);
-                        }
+                        handleSuggestionSelection(top);
                         e.preventDefault();
                     }
                 }
@@ -173,84 +229,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // fetch the data index for suggestions (do it regardless of whether this page shows cards)
+    // fetch the data index for suggestions and render only the current page's cards
     fetchAllDataFiles().then(() => {
-        // If URL has ?q=... prefill and apply filter or navigate
+        const currentPage = getCurrentPageFilename();
+        renderCardsForCurrentPage(currentPage);
+
+        // If URL has ?q=... prefill and highlight
         const params = new URLSearchParams(window.location.search);
         const q = params.get('q');
         if (q && searchInput) {
             searchInput.value = q;
-            if (container) filterCards(q.toLowerCase());
+            highlightCardByName(q, currentPage);
         }
     });
 
-    // ── Decide which JSON file to load ────────────────────────
-    let jsonPath = './data/clubs.json';
-    let isClubbing = false;
+    // Render only cards that belong to the current page
+    function renderCardsForCurrentPage(currentPage) {
+        if (!container) return;
+        if (loading) loading.style.display = 'none';
+        container.innerHTML = '';
 
-    const pathname = window.location.pathname.toLowerCase();
+        const items = (Array.isArray(searchIndex) ? searchIndex.filter(i => i.page === currentPage) : []);
 
-    if (pathname.includes('hayley-fsport') || pathname.includes('fall')) {
-        jsonPath = './data/fall.json';
-    } else if (pathname.includes('hayley-wsport') || pathname.includes('winter')) {
-        jsonPath = './data/winter.json';
-    } else if (pathname.includes('hayley-ssport') || pathname.includes('spring')) {
-        jsonPath = './data/spring.json';
-    } else if (pathname.includes('clubs') || pathname.includes('clubbing')) {
-        jsonPath = './data/clubbing.json';
-        isClubbing = true;
-    }
+        if (!items.length) {
+            container.innerHTML = '<p class="text-center lead">No items listed yet.</p>';
+            return;
+        }
 
-    // ── Fetch and render cards ───────────────────────────────
-    fetch(jsonPath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to load ${jsonPath} – status ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (loading) loading.style.display = 'none';
-            container.innerHTML = '';
+        const sorted = items.slice().sort((a, b) => a.name.localeCompare(b.name));
+        sorted.forEach(item => {
+            const col = document.createElement('div');
+            col.className = 'col';
 
-            if (!Array.isArray(data) || data.length === 0) {
-                container.innerHTML = '<p class="text-center lead">No items listed yet.</p>';
-                return;
-            }
+            const roleLabel = item.isClubbing ? 'Teacher' : 'Coach';
+            const descriptionHTML = item.isClubbing
+                ? `<p><strong>Description:</strong> ${escapeHtml(item.data.description || 'No description available.')}</p>`
+                : '';
 
-            const roleLabel = isClubbing ? 'Teacher' : 'Coach';
+            const imageHTML = item.data.image
+                ? `<img src="${escapeHtml(item.data.image)}" alt="${escapeHtml(item.name || 'Unnamed')}" class="club-image">`
+                : '';
 
-            data.forEach(item => {
-                const col = document.createElement('div');
-                col.className = 'col';
+            col.innerHTML = `
+                <div class="club-card" data-page="${escapeHtml(item.page)}">
+                    ${imageHTML}
+                    <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
+                    <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
+                    ${descriptionHTML}
+                    <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
+                    <p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>
+                </div>
+            `;
 
-                const descriptionHTML = isClubbing
-                    ? `<p><strong>Description:</strong> ${item.description || 'No description available.'}</p>`
-                    : '';
-
-                const imageHTML = item.image
-                    ? `<img src="${item.image}" alt="${item.name || 'Unnamed'}" class="club-image">`
-                    : '';
-
-                col.innerHTML = `
-                    <div class="club-card">
-                        ${imageHTML}
-                        <h3>${item.name || 'Unnamed'}</h3>
-                        <p><strong>${roleLabel}:</strong> ${item.teacher || item.coach || 'TBD'}</p>
-                        ${descriptionHTML}
-                        <p><strong>Contact:</strong> ${item.contact || 'N/A'}</p>
-                        <p><strong>Location:</strong> ${item.location || 'TBD'}</p>
-                    </div>
-                `;
-
-                container.appendChild(col);
-            });
-        })
-        .catch(err => {
-            console.error('Error loading information:', err);
-            if (loading) loading.style.display = 'none';
-            if (errorEl) errorEl.style.display = 'block';
+            container.appendChild(col);
         });
+    }
 });
 
 
