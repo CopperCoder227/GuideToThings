@@ -42,7 +42,7 @@
         "contact": "mfontanilla@frhsd.com"
     },
        {
-         
+        "image":"img/DECA.png",
         "name": "DECA",
         "teacher": "Mr. Varrial and Ms.Bendik",
         "description": "National organization for marketing students. Promotes marketing through leadership training, community service, and competitions at regional, state, and national levels.",
@@ -90,6 +90,7 @@
         "contact": "spatel@frhsd.com"
     },
        {
+        "image":"img/LEO.png",
         "name": "LEO Club",
         "teacher": "Ms. Foti",
         "description": "Leadership, Experience, and Opportunity Club empowering students to serve communities, encourage peace, and develop leadership skills. Meets monthly for volunteer opportunities and community service projects.",
@@ -144,6 +145,7 @@
         "contact": "amokracek@frhsd.com and nscalzo@frhsd.com"
     },
          {
+        "image":"img/pitorchestra.png",
         "name": "Pit Orchestra",
         "teacher": "Mr. Ippolito",
         "description": "Student instrumentalists performing in the pit orchestra for the school musical are selected by the music director from students in the music performance classes. Students not enrolled in the band program that are interested in this group must audition with the music director.",
