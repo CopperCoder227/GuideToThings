@@ -88,7 +88,7 @@ main {
   transition: padding-left 0.35s ease;
 }
 
-.sidebar.active~main {
+.sidebar.active ~ main {
   padding-left: 300px;
   /* push content right when sidebar open */
 }
@@ -204,7 +204,7 @@ main {
     transform: translateX(85vw);
   }
 
-  .sidebar.active~main {
+  .sidebar.active ~ main {
     padding-left: 20px;
     /* less push on small screens */
   }
