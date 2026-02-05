@@ -104,6 +104,7 @@
         "contact": "mippolito@frhsd.com"
     },
        {
+        "image":"img/marlboroslavic.png",
         "name": "Marlboro Slavic Society",
         "teacher": "Ms. Townsend",
         "description": "Marlboro Slavic Society (MSS) is all about teaching and embracing Slavic cultures through music, fun facts, games and even delicacies. We strive to educate anyone and everyone on Slavic cultures and build a thriving community of people. Everyone is welcome to join, no matter your ethnic background!",
@@ -166,12 +167,14 @@
         "contact": "eyang@frhsd.com"
     },
          {
+        "image": "img/SADD.png",
         "name": "SADD (Students Against Destructive Decisions)",
         "teacher": "Ms. Bailey",
         "description": "Peer leadership organization dedicated to preventing destructive decisions including underage drinking, drug use, impaired driving, teen violence, and depression through positive peer pressure and role modeling.",
         "contact": "nbailey@frhsd.com"
     },
          {
+        "image": "img/scieneleague.png",
         "name": "Science League",
         "teacher": "Ms. Stumbaugh",
         "description": "Competitive organization allowing students to apply science skills across Biology, Chemistry, Physics, and Environmental Science topics. Compete against other schools with four competitions per year.",
@@ -179,6 +182,7 @@
     },
     
     {
+    "image": "img/SCOPE.png",
     "name": "SCOPE",
     "teacher": "Mr. Yuhas",
     "description": "Summer Camp Opportunities Promote Education. It is an organization that provides summer camp scholarships to children from low-income families.  from their website: Our mission is to help children grow and thrive, and to inspire them to make positive contributions to our communities.",
@@ -186,6 +190,7 @@
     },
     
     {
+        "image": "img/seniorsmiles.png",
         "name": "Senior Smile Society",
         "teacher": "Ms. Greenwood",
         "description": "Senior Smiles aims to enhance the senior citizens’ quality of life and ultimately bring a smile to residents at the Sunrise in Marlboro. We have monthly meetings to create meaningful crafts including holiday baskets, bracelets, bookmarks, and motivational cards for community service opportunities!",
@@ -193,6 +198,7 @@
     },
     
     {
+        "image": "img/sourcesofstrength.png",
         "name": "Sources of Strength",
         "teacher": "Ms. Myers",
         "description": "National organization dedicated to mental health promotion and suicide prevention through comprehensive wellness programs addressing suicide, violence, bullying, and substance misuse. Members create positive peer impact through connection and support.",
@@ -207,12 +213,14 @@
         "contact": "mippolito@frhsd.com"
     },
         {
+        "image": "img/studentcouncil.png",
         "name": "Student Council",
         "teacher": "Ms. Hazel",
         "description": "The Executive Board of Student Council provides a foundation for the class councils.  All councils work collaboratively to improve the MHS environment.",
         "contact": "mhazel@frhsd.com"
     },
         {
+        "image": "img/TSA.png",
         "name": "Technology Student Association (TSA)",
         "teacher": "Mr. Werntz",
         "description": "STEM-focused club where members work on competitive events and attend state and national conferences. Provides opportunities to pursue academic challenges with peers who share similar interests.",
@@ -227,6 +235,7 @@
     },
         
         {
+        "image": "img/yearbook.png",
         "name": "Yearbook",
         "teacher": "Ms. Ransom",
         "description": "This club creates an annual, quality publication that documents the school year in a fun and creative way",
