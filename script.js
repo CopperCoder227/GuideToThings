@@ -276,17 +276,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const imageHTML = item.data.image
                 ? `<img src="${escapeHtml(item.data.image)}" alt="${escapeHtml(item.name || 'Unnamed')}" class="club-image">`
                 : '';
+            const showLocation = item.page !== 'clubs.html';
 
             col.innerHTML = `
-                <div class="club-card" data-page="${escapeHtml(item.page)}">
-                    ${imageHTML}
-                    <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
-                    <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
-                    ${descriptionHTML}
-                    <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
-                    <p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>
-                </div>
-            `;
+    <div class="club-card" data-page="${escapeHtml(item.page)}">
+        ${imageHTML}
+        <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
+        <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
+        ${descriptionHTML}
+        <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
+        ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
+    </div>
+`;
 
             container.appendChild(col);
         });
