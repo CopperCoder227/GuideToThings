@@ -297,43 +297,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Carousel ────────────────────────────────────────────────
 const carouselImages = [
-    'imgs/main.webp',
-    'imgs/sky.webp',
-    'imgs/sport.webp',
-    'imgs/frontsoot.webp',
-    'imgs/football.webp',
-    'imgs/botc.jpg',
+    // choose whichever images you prefer; the first will show initially
+    'imgs/IMG_8539.jpeg',
+    'imgs/IMG_8540.jpeg',
+    'imgs/IMG_8541.jpeg',
+    'imgs/IMG_8542.jpeg',
+    'imgs/IMG_8543.jpeg',
+    'imgs/IMG_8544.jpeg',
 ];
-
-const CAROUSEL_HEIGHT = 400;
 
 function initCarousel() {
     const carouselInner = document.querySelector('.carousel-inner');
     if (!carouselInner) return;
 
-    carouselInner.querySelectorAll('.carousel-item').forEach(item => item.remove());
+    // clear any existing slides
+    carouselInner.innerHTML = '';
 
     carouselImages.forEach((imagePath, index) => {
         const carouselItem = document.createElement('div');
-        carouselItem.className = 'carousel-item';
-        if (index === 0) carouselItem.classList.add('active');
-
-        const container = document.createElement('div');
-        container.style.height = CAROUSEL_HEIGHT + 'px';
-        container.style.display = 'flex';
-        container.style.alignItems = 'center';
-        container.style.justifyContent = 'center';
-        container.style.backgroundColor = 'white';
+        carouselItem.className = 'carousel-item' + (index === 0 ? ' active' : '');
 
         const img = document.createElement('img');
         img.src = imagePath;
-        img.alt = 'MHS Logo';
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        img.style.objectFit = 'contain';
+        img.alt = `Slide ${index + 1}`;
+        img.className = 'd-block w-100';
+        img.style.objectFit = 'cover';
 
-        container.appendChild(img);
-        carouselItem.appendChild(container);
+        carouselItem.appendChild(img);
         carouselInner.appendChild(carouselItem);
     });
 }

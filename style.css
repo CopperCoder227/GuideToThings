@@ -1,11 +1,9 @@
 /* Reset basics + body */
 body {
   font-family: "SN Pro", sans-serif !important;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(136, 211, 255),
-    rgb(0, 162, 255)
-  ) !important;
+  background-image: linear-gradient(to bottom,
+      rgb(136, 211, 255),
+      rgb(0, 162, 255)) !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -87,7 +85,7 @@ main {
   transition: padding-left 0.35s ease;
 }
 
-.sidebar.active ~ main {
+.sidebar.active~main {
   padding-left: 300px;
   /* push content right when sidebar open */
 }
@@ -178,6 +176,7 @@ main {
   width: 100%;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
+
 .sn-pro-uniquifier {
   font-family: "SN Pro", sans-serif !important;
   font-optical-sizing: auto !important;
@@ -199,6 +198,38 @@ main {
   }
 }
 
+/* Banner carousel at top of index with text overlay */
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* push down a bit so it isn't flush to the very top */
+  margin-top: 60px;
+}
+
+.banner-carousel .carousel-inner {
+  /* taller banner for more vertical space */
+  height: 450px;
+}
+
+.banner-carousel .carousel-inner .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .sidebar {
@@ -210,7 +241,7 @@ main {
     transform: translateX(85vw);
   }
 
-  .sidebar.active ~ main {
+  .sidebar.active~main {
     padding-left: 20px;
     /* less push on small screens */
   }
