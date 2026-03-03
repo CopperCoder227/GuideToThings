@@ -33,16 +33,6 @@
   </nav>
 
   <header>
-    <div class="banner-carousel position-relative">
-      <div id="logoCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="1200">
-        <div class="carousel-inner">
-        </div>
-        <!-- controls removed for automatic sliding look -->
-      </div>
-      <div class="banner-text">
-        <h1 class="text-white mb-0">MHS Clubs & Sports</h1>
-      </div>
-    </div>
     <div class="container-fluid bg-dark text-white p-3"> <!-- Search Bar -->
       <div class="search-container" style="position: absolute; top: 15px; right: 20px; width: 250px;">
         <input type="text" id="searchInput" placeholder="Search clubs, sports, keywords..." class="form-control"
@@ -53,6 +43,18 @@
       </div>
       <br>
       <br>
+
+      <div id="logoCarousel" class="carousel slide mx-auto" style="max-width: 650px;" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#logoCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#logoCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <h1 class="text-center mt-3">MHS Clubs & Sports</h1>
     </div>
 
     <div>
